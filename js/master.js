@@ -1,7 +1,11 @@
 function Mostrar() {
+  const removeAccents = (str) => {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
   var tex = document.getElementById("text").value;
   var word;
-  var texOriginal = tex.toLowerCase();
+  var chain = removeAccents(tex);
+  var texOriginal = chain.toLowerCase();
   var letterSpace = texOriginal.split("");
   var chainWithoutSpace = "";
   for (i in letterSpace) {
